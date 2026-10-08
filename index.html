@@ -475,14 +475,18 @@ const variants = {
         oldPrice: 109.90,
         comboPrice: 87.90,
         comboOldPrice: 179.80,
-        savings: 91.90
+        savings: 91.90,
+        checkoutUrl: 'https://seguro-pagos.lol/c/off_01m4bt9t8hqx9pgpj5f3y7y8ga',
+        comboCheckoutUrl: 'https://seguro-pagos.lol/c/off_01m4btqskh35rvmqm7djsnwbtk'
     },
     '100cm': {
         price: 97.90,      // <-- AJUSTE O PREÇO DE 1 UNIDADE DO 100CM AQUI
         oldPrice: 198.80,   // <-- AJUSTE O PREÇO ANTIGO AQUI
-        comboPrice: 147.90, // <-- AJUSTE O PREÇO DO COMBO DO 100CM AQUI
+        comboPrice: 149.90, // <-- AJUSTE O PREÇO DO COMBO DO 100CM AQUI
         comboOldPrice: 349.80,
-        savings: 207.90
+        savings: 199.90,
+        checkoutUrl: 'https://seguro-pagos.lol/c/off_01m4bt9t8hqx9pgpj5f3y7y8ga',
+        comboCheckoutUrl: 'https://seguro-pagos.lol/c/off_01m4btn2ad2v67ddhg3setxbyq'
     }
 };
 
@@ -522,7 +526,7 @@ function buy() {
     trackTikTokEvent('InitiateCheckout', { value: v.price, currency: 'BRL' });
     
     setTimeout(function() {
-        window.location.href = 'https://pay.lojaaon.shop/a6pVgdj4nRBZk7B'; // <-- NOVO LINK FORNECIDO
+        window.location.href = v.checkoutUrl;
     }, 300);
 }
 
@@ -538,8 +542,7 @@ function buyCombo() {
     trackTikTokEvent('InitiateCheckout', { value: v.comboPrice, currency: 'BRL' });
     
     setTimeout(function() {
-        // Mantive o link original do combo. Se o novo link servir para os dois, substitua a URL abaixo.
-        window.location.href = 'https://pay.lojaaon.shop/QqyLgqA0wljgvkE'; 
+        window.location.href = v.comboCheckoutUrl; 
     }, 300);
 }
 
